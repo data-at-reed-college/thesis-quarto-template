@@ -1,0 +1,4 @@
+# The First Appendix {#sec-appendix-a}
+
+Appendix content goes here. Appendices are lettered (A, B, ...) automatically and
+appear in the table of contents.

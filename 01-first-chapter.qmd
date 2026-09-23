@@ -1,0 +1,62 @@
+# The First Chapter {#sec-first}
+
+This is the first page of the first chapter. You may delete the contents of this chapter
+so you can add your own text; it's just here to show you some examples.
+
+## References, Labels, Cross-references and Footnotes {#sec-references}
+
+It is easy to refer to anything within your document. Give a heading, figure, table or
+equation a label that starts with the right prefix (`sec-`, `fig-`, `tbl-` or `eq-`),
+and refer to it with `@` followed by the label. Labels must be unique and shouldn't use
+spaces or odd characters. Quarto keeps track of the chapter, section, figure and table
+numbers, and even adds the word "Figure" or "Table" for you.
+
+### References and labels
+
+For example, @tbl-inheritance shows that many factors can be assumed to follow from
+inheritance, and @fig-subd shows an image. You can also point back to sections: this
+one is @sec-references, and the chapter on math is @sec-math.
+
+### Custom shorthand
+
+Are you tired of typing the same phrase over and over? For text, a small
+[Quarto shortcode or variable](https://quarto.org/docs/authoring/variables.html) works
+in both PDF and Word. For LaTeX-only macros (PDF output), put `\newcommand` lines in
+`header-includes` in `_quarto.yml`.
+
+### Footnotes
+
+You might want to footnote something.^[Footnote text goes right here, inside the
+brackets.] The footnote is placed appropriately in both the PDF and Word output.
+
+## Bibliographies {#sec-bib}
+
+Of course you will need to cite things, and you will probably accumulate an armful of
+sources. Put them in `references.bib` (BibTeX format; tools like Zotero or JabRef can
+export it), then cite them by key. Put the key in square brackets to get a
+parenthetical citation [@angel:2000], use `@angel:2000` for a text citation like
+@angel:2000, and separate several keys with semicolons [@angel:2000; @deussen:2000].
+You can also cite a website [@reedweb:2007] or a Reed thesis [@noble:2002].
+
+The bibliography style is set once, in `_quarto.yml`: `bibstyle: apa` for the PDF and
+`csl: csl/apa.csl` for Word. To use another style, change `bibstyle` (for example
+`chicago` or `ieee`) and download the matching `.csl` file from the
+[Zotero style repository](https://www.zotero.org/styles).
+
+### Tips for bibliographies
+
+1. Like with thesis formatting, the sooner you start compiling your bibliography for
+   something as large as a thesis, the better. Do you really want to type in source
+   after source in late April? Think of it as procrastination.
+2. Each entry's key (its label) must be unique.
+3. When there is more than one author or editor, separate names with the word "and":
+   `author = {Noble, Sam and Youngberg, Jessica}`.
+4. To force capitalization in an article title, put the capital letter in curly
+   braces.
+5. For a Reed thesis, use the `phdthesis` entry type and put "Reed thesis" or
+   "Undergraduate thesis" in the optional `type` field.
+
+## Anything else?
+
+If you'd like to see examples of other things in this template, please contact CUS
+(cus@reed.edu) with your suggestions.

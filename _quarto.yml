@@ -1,0 +1,69 @@
+project:
+  type: book
+  output-dir: _book
+  pre-render: Rscript resources/check-latex.R
+  post-render: resources/postprocess-docx.py
+
+book:
+  title: "My Final College Paper"
+  author: "Your R. Name"
+  date: "May 2026"
+  date-format: "MMMM YYYY"
+  chapters:
+    - index.qmd
+    - 01-first-chapter.qmd
+    - 02-math-science.qmd
+    - 03-tables-graphics.qmd
+    - 04-conclusion.qmd
+  appendices:
+    - 90-appendix-a.qmd
+    - 91-appendix-b.qmd
+
+# --- Thesis metadata (used on the title page and approval page) ---
+division: "Mathematics and Natural Sciences"
+department: "Mathematics"
+advisor: "Advisor F. Name"
+# altadvisor: "Your Other Advisor"
+
+# --- Front matter (optional; delete any you don't want) ---
+acknowledgments: |
+  I want to thank a few people.
+preface: |
+  This is an example of a thesis set up with Quarto and the Reed thesis class.
+dedication: |
+  You can have a dedication here if you wish.
+abstract: |
+  The preface pretty much says it all.
+abbrev-list:
+  - short: ABC
+    long: American Broadcasting Company
+  - short: CUS
+    long: Computer User Services
+lot: true
+lof: true
+
+bibliography: references.bib
+
+execute:
+  echo: false
+  warning: false
+
+format:
+  pdf:
+    template: resources/template.tex
+    documentclass: reedthesis
+    fontsize: 12pt
+    bibstyle: apa          # apa, chicago, ieee, numeric, ...
+    cite-method: biblatex
+    biblio-config: false   # reedthesis.cls loads biblatex itself
+    keep-tex: false
+    spacing: onehalfspacing
+    number-sections: true
+    toc: false             # the template prints its own table of contents
+  docx:
+    reference-doc: resources/reference.docx
+    filters:
+      - resources/reed-docx.lua
+    csl: csl/apa.csl
+    number-sections: true
+    toc: false

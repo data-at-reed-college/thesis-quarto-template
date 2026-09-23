@@ -1,0 +1,43 @@
+# Introduction {.unnumbered}
+
+Welcome to the Quarto version of the Reed thesis template. If you've never used Quarto
+or Markdown before, you'll have a short learning period, but the payoff is a document that
+is consistent, easy to keep under version control, and that can produce both a
+Reed-formatted **PDF** (through the `reedthesis` LaTeX class) and a Reed-formatted
+**Word** document (through the Reed Word template) from the same source files.
+
+Quarto lets you mix your writing with **R** or **Python** code. The code runs when you
+render the thesis, so your figures, tables and numbers always match your analysis.
+
+This introduction is unnumbered on purpose: the first numbered chapter comes next. To
+add another unnumbered chapter, put `{.unnumbered}` after its title, as in the first line
+of this file.
+
+## Why use it?
+
+Quarto does a great job of keeping your text separate from how it looks. Change the
+bibliography style, the spacing, or the output format in one place (`_quarto.yml`) and the
+whole thesis follows. Under the hood, the PDF is typeset by LaTeX, which has an excellent
+line-breaking algorithm, automatic ligatures, and is the best way to typeset good-looking
+mathematics.
+
+## Who should use it?
+
+Anyone who wants reproducible analysis in their thesis, needs math, tables, many figures,
+cross-references or citations, or just cares about the final appearance of their document.
+At Reed, math majors are required to use LaTeX and many science majors will want to; this
+template lets you write in Markdown and still get the same Reed class file.
+
+## Rendering your thesis
+
+From this folder, run one of:
+
+```bash
+quarto render --to pdf      # PDF using reedthesis.cls
+quarto render --to docx     # Word using the Reed Word template
+quarto render               # both
+```
+
+The output is written to `_book/`. Your title, name, advisor, division, department and
+front matter (acknowledgments, preface, abstract, dedication, abbreviations) all live in
+`_quarto.yml`.
