@@ -1,0 +1,3 @@
+# The Second Appendix, for Fun {#sec-appendix-b}
+
+Another appendix, referred to from the text as @sec-appendix-b.

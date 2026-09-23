@@ -1,0 +1,15 @@
+# Conclusion {.unnumbered}
+
+Here's a conclusion. In Quarto, an unnumbered chapter is just a chapter with
+`{.unnumbered}` after its title; Quarto adds it to the table of contents and the running
+headers for you.
+
+So there is no manual counter-resetting or `\addcontentsline` bookkeeping as in the
+plain LaTeX template. The chapter counter simply skips unnumbered chapters, so the
+appendices that follow are lettered on their own.
+
+## More info
+
+And here's some other random info: the first paragraph after a chapter title or section
+head *shouldn't be* indented, because indents tell the reader that a new paragraph is
+starting, and that's obvious after a heading. LaTeX handles this for you in the PDF.

@@ -1,0 +1,93 @@
+% Reed College thesis: Pandoc/Quarto template built on reedthesis.cls.
+% Front matter comes from the YAML metadata in _quarto.yml.
+\documentclass[
+$if(fontsize)$$fontsize$,$endif$
+  twoside,
+  bibstyle=$if(bibstyle)$$bibstyle$$else$apa$endif$,
+  bibfile=$if(bibliography)$$for(bibliography)$$bibliography$$sep$,$endfor$$else$references.bib$endif$,
+  headerstyle=$if(headerstyle)$$headerstyle$$else$uppercase$endif$,
+$for(classoption)$
+  $classoption$,
+$endfor$
+]{reedthesis}
+
+\usepackage{graphicx,latexsym}
+\usepackage{amssymb,amsthm,amsmath}
+\usepackage{longtable,booktabs,setspace,array,calc}
+\usepackage{rotating}
+\usepackage[english]{babel}
+\usepackage{caption}
+\usepackage{iftex}
+\usepackage{xcolor}
+\usepackage{fancyvrb}
+\usepackage{etoolbox}
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+$if(tables)$
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+$endif$
+\providecommand{\pandocbounded}[1]{#1}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{}
+\urlstyle{same}
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+\title{$title$}
+\author{$for(by-author)$$it.name.literal$$sep$, $endfor$}
+\date{$date$}
+\division{$division$}
+\advisor{$advisor$}
+$if(altadvisor)$\altadvisor{$altadvisor$}$endif$
+\department{$department$}
+$if(thedivisionof)$\thedivisionof{$thedivisionof$}$endif$
+$if(approvedforthe)$\approvedforthe{$approvedforthe$}$endif$
+\setlength{\parskip}{0pt}
+$if(spacing)$\$spacing$$endif$
+
+\begin{document}
+\maketitle
+\frontmatter
+\pagestyle{empty}
+
+$if(acknowledgments)$
+\chapter*{Acknowledgments}
+$acknowledgments$
+$endif$
+$if(preface)$
+\chapter*{Preface}
+$preface$
+$endif$
+$if(abbrev-list)$
+\chapter*{List of Abbreviations}
+\begin{center}\begin{tabular}{ll}
+$for(abbrev-list)$
+\textbf{$abbrev-list.short$} & $abbrev-list.long$ \\
+$endfor$
+\end{tabular}\end{center}
+$endif$
+
+\tableofcontents
+$if(lot)$\listoftables$endif$
+$if(lof)$\listoffigures$endif$
+
+$if(abstract)$
+\chapter*{Abstract}
+$abstract$
+$endif$
+$if(dedication)$
+\chapter*{Dedication}
+$dedication$
+$endif$
+
+\mainmatter
+\pagestyle{fancyplain}
+
+$body$
+
+\backmatter
+$if(nocite-all)$\nocite{*}$endif$
+\printbibliography[heading=bibintoc]
+\end{document}

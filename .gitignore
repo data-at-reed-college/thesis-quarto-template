@@ -47,3 +47,11 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+/.quarto/
+
+# Quarto build output
+_book/
+*_files/
+/*.tex
+.DS_Store
